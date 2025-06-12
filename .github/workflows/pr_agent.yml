@@ -3,6 +3,8 @@ name: QODO Merge PR Agent
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  issue_comment:
+    types: [created, edited]
 
 jobs:
   pr_review:
