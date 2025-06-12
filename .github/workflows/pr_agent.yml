@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run QODO Merge PR Agent
-        uses: qodo-ai/pr-agent@latest
+        uses: qodo-ai/pr-agent@main
         env:
           QODO_API_KEY: ${{ secrets.QODO_API_KEY }}
           #OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # Make sure to add your OpenAI key to your repo secrets
