@@ -3,6 +3,8 @@ name: QODO Merge PR Agent
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  issue_comment:
+    types: [created, edited]
 
 jobs:
   pr_review:
@@ -12,11 +14,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run QODO Merge PR Agent
-        uses: qodo-ai/pr-agent@latest
+        uses: qodo-ai/pr-agent@main
         env:
-          QODO_API_KEY: ${{ secrets.QODO_API_KEY }}
-          #OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # Make sure to add your OpenAI key to your repo secrets
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Make sure to add your GitHub token to your repo secrets
+          # QODO_API_KEY: ${{ secrets.QODO_API_KEY }}
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # Make sure to add your OpenAI key to your repo secrets
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Make sure to add your GitHub token to your repo secrets
           github_action_config.auto_review: "true" # enable\disable auto review
           github_action_config.auto_describe: "true" # enable\disable auto describe
           github_action_config.auto_improve: "true" # enable\disable auto improve
