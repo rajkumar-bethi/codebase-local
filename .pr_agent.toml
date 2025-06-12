@@ -1,0 +1,20 @@
+[config]
+handle_push_trigger = true
+
+[github_app]
+pr_commands = ["/describe", "/review", "/improve", "/ask"]
+auto_approve_commands = ["/describe"]
+
+[pr_description]
+use_description_markers = true
+publish_description = true
+
+[pr_reviewer]
+enable_auto_approval = false
+
+[pr_code_suggestions]
+commitable_code_suggestions = true
+apply_suggestions_checkbox = true
+
+[pr_ask]
+enable_ask = true
