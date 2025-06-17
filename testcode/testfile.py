@@ -33,14 +33,15 @@ def main():
         print("Invalid number input")
         return
 
-    if choice == '1':
-        print(f"{num1} + {num2} = {add(num1, num2)}")
-    elif choice == '2':
-        print(f"{num1} - {num2} = {subtract(num1, num2)}")
-    elif choice == '3':
-        print(f"{num1} * {num2} = {multiply(num1, num2)}")
-    elif choice == '4':
-        print(f"{num1} / {num2} = {divide(num1, num2)}")
+    operations = {
+        '1': (add, '+'),
+        '2': (subtract, '-'),
+        '3': (multiply, '*'),
+        '4': (divide, '/')
+    }
+    func, symbol = operations[choice]
+    result = func(num1, num2)
+    print(f"{num1} {symbol} {num2} = {result}")
 
 if __name__ == "__main__":
     main()
