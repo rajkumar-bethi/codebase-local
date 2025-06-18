@@ -159,7 +159,7 @@ class TrackPdfDownloadAPIView(APIView):
 
 
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args):
         user_id = request.data.get('user_id')
         email = request.data.get('email')
         pdf_link_id = request.data.get('pdflink_id')
