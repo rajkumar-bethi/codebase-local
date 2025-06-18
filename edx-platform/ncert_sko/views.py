@@ -115,7 +115,7 @@ class TrackPdfDownloadAPIView(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, *args,**kwargs):
+    def get(self, request, *args, **kwargs):
         
         email = request.GET.get('email', None)
         if not email:
