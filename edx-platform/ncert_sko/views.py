@@ -34,7 +34,7 @@ class NcertSubjectsView(APIView):
         class_name = request.GET.get('class', None)
 
         if not class_name:
-            return Response({"error": "class parameter is required"}, status=400)
+            return Response({"error": "class parameter is required"}, status=status.HTTP_400_BAD_REQUEST)
 
         # Fetch the StudentClass instance
         try:
