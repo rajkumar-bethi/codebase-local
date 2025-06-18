@@ -16,10 +16,9 @@ from django.conf import settings
 class NcertClassesView(APIView):
 
     def get(self, request, *args, **kwargs):
-        try:
-            student_classes = StudentClass.objects.all()
-        except StudentClass.DoesNotExist:
-            return Response({"error": "Class not found"}, status=404)
+        student_classes = StudentClass.objects.all()
+        if not student_classes.exists():
+            return Response({"error": "No classes found"}, status=404)
 
         data = [
             {"id": student_class.id, "class_name": student_class.class_name, "class_value":student_class.class_value}
