@@ -266,7 +266,7 @@ def _update_course_context(request, context, course, platform_name):
     try: # Adding support if course_start and course_end exists
         context['course_start'] = course.start.strftime("%b %Y")
         context['course_end'] = course.end.strftime("%b %Y")
-    except:
+    except (AttributeError, TypeError):
         context["course_start"] = ""
         context["course_end"] = ""
     context['idv_enabled_for_certificates'] = settings.FEATURES.get('ENABLE_CERTIFICATES_IDV_REQUIREMENT')
@@ -800,7 +800,7 @@ def _render_invalid_certificate(request, course_id, platform_name, configuration
     return render_to_response(cert_path, context)
 
 
-def _render_valid_certificate(request, custom_template=None):
+def _render_valid_certificate(request, context, custom_template=None):
     """
     Renders certificate
     """
